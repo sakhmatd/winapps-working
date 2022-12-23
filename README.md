@@ -80,6 +80,10 @@ Note: The officially configured application list below is fueled by the communit
     <td><img src="icons/windows.svg" width="100"></td><td>Windows<br>(Full RDP session)</td>
     <td><img src="apps/visio/icon.svg" width="100"></td><td>Microsoft Visio<br>(2016, 2019, 2021, o365)</td>
   </tr>
+   <tr>
+    <td><img src="apps/windows-terminal/icon.svg" width="100"></td><td>Windows Terminal<br>(UWP version)</td>
+    <td>&nbsp;</td><td>&nbsp;</td>
+  </tr>
 </table>
 
 ## Installation
