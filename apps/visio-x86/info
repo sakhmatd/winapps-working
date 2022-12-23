@@ -8,7 +8,7 @@ FULL_NAME="Microsoft Visio"
 WIN_EXECUTABLE="C:\Program Files (x86)\Microsoft Office\Office16\Visio.EXE"
 
 # GNOME categories
-CATEGORIES="WinApps;Office"
+CATEGORIES="WinApps;Graphics;Office"
 
 # GNOME mimetypes
 MIME_TYPES="application/visio;application/visio;application/x-visio;application/x-visio;application/vnd.visio;"
