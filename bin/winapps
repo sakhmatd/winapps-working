@@ -76,10 +76,10 @@ if [ "${1}" = "windows" ]; then
 	xfreerdp ${RDP_FLAGS} /d:"${RDP_DOMAIN}" /u:"${RDP_USER}" /p:"${RDP_PASS}" /v:${RDP_IP} /scale:${RDP_SCALE} /dynamic-resolution +clipboard +auto-reconnect +home-drive /wm-class:"Microsoft Windows" 1> /dev/null 2>&1 &
 elif [ "${1}" = "check" ]; then
 	dprint "CHECK"
-	xfreerdp ${RDP_FLAGS} /d:"${RDP_DOMAIN}" /u:"${RDP_USER}" /p:"${RDP_PASS}" /v:${RDP_IP} +auto-reconnect +clipboard +home-drive -wallpaper /scale:${RDP_SCALE} /dynamic-resolution /${MULTI_FLAG} /app:"explorer.exe" /sec:tls
+	xfreerdp ${RDP_FLAGS} /d:"${RDP_DOMAIN}" /u:"${RDP_USER}" /p:"${RDP_PASS}" /v:${RDP_IP} +auto-reconnect +clipboard +home-drive -wallpaper /scale:${RDP_SCALE} /dynamic-resolution /app:program:"explorer.exe"
 elif [ "${1}" = "manual" ]; then
 	dprint "MANUAL:${2}"
-	xfreerdp ${RDP_FLAGS} /d:"${RDP_DOMAIN}" /u:"${RDP_USER}" /p:"${RDP_PASS}" /v:${RDP_IP} +auto-reconnect +home-drive +clipboard -wallpaper /scale:${RDP_SCALE} /dynamic-resolution /${MULTI_FLAG} /app:"${2}" 1> /dev/null 2>&1 &
+	xfreerdp ${RDP_FLAGS} /d:"${RDP_DOMAIN}" /u:"${RDP_USER}" /p:"${RDP_PASS}" /v:${RDP_IP} +auto-reconnect +home-drive +clipboard -wallpaper /scale:${RDP_SCALE} /dynamic-resolution /${MULTI_FLAG} /app:program:"${2}" 1> /dev/null 2>&1 &
 elif [ "${1}" != "install" ]; then
 	dprint "DIR:${DIR}"
 	if [ -e "${DIR}/../apps/${1}/info" ]; then
@@ -107,14 +107,14 @@ elif [ "${1}" != "install" ]; then
 			APP_ARGS="${UWP_CMD} \"${FILE}\""
 		fi
 
-		xfreerdp ${RDP_FLAGS} /d:"${RDP_DOMAIN}" /u:"${RDP_USER}" /p:"${RDP_PASS}" /v:${RDP_IP} +auto-reconnect +clipboard +home-drive -wallpaper /scale:${RDP_SCALE} /dynamic-resolution /${MULTI_FLAG} /wm-class:"${FULL_NAME}" /app:"${WIN_EXECUTABLE}" /app-icon:"${ICON}" /app-cmd:"${APP_ARGS}" 1> /dev/null 2>&1 &
+		xfreerdp ${RDP_FLAGS} /d:"${RDP_DOMAIN}" /u:"${RDP_USER}" /p:"${RDP_PASS}" /v:${RDP_IP} +auto-reconnect +clipboard +home-drive -wallpaper /scale:${RDP_SCALE} /dynamic-resolution /${MULTI_FLAG} /wm-class:"${FULL_NAME}" /app:program:"${WIN_EXECUTABLE}",icon:"${ICON}",cmd:"${APP_ARGS}" 1> /dev/null 2>&1 &
 	else
 		if [ -z "${PACKAGE_FAMILY_NAME}" ]; then
 			APP_ARGS=""
 		else
 			APP_ARGS="${UWP_CMD}"
 		fi
-		xfreerdp ${RDP_FLAGS} /d:"${RDP_DOMAIN}" /u:"${RDP_USER}" /p:"${RDP_PASS}" /v:${RDP_IP} +auto-reconnect +clipboard +home-drive -wallpaper /scale:${RDP_SCALE} /dynamic-resolution /${MULTI_FLAG} /wm-class:"${FULL_NAME}" /app:"${WIN_EXECUTABLE}" /app-icon:"${ICON}" /app-cmd:"${APP_ARGS}" 1> /dev/null 2>&1 &
+		xfreerdp ${RDP_FLAGS} /d:"${RDP_DOMAIN}" /u:"${RDP_USER}" /p:"${RDP_PASS}" /v:${RDP_IP} +auto-reconnect +clipboard +home-drive -wallpaper /scale:${RDP_SCALE} /dynamic-resolution /${MULTI_FLAG} /wm-class:"${FULL_NAME}" /app:program:"${WIN_EXECUTABLE}",icon:"${ICON}",cmd:"${APP_ARGS}" 1> /dev/null 2>&1 &
 	fi
 fi
 
